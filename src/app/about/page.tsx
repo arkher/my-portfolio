@@ -3,6 +3,7 @@ import { AnimatedNumbers } from "@/components/AnimatedNumbers";
 import Head from "next/head";
 import Image from "next/image";
 import profilePic from "../../../public/images/profile/developer-pic-2.jpg";
+import { Skills } from "@/components/Skills";
 
 const page = () => {
   return (
@@ -72,6 +73,7 @@ const page = () => {
               </div>
             </div>
           </div>
+          <Skills />
         </Container>
       </main>
     </>
