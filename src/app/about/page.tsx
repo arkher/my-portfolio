@@ -1,9 +1,10 @@
-import { AnimatedText, Container } from "@/components";
+import { AnimatedText, Container, Education } from "@/components";
 import { AnimatedNumbers } from "@/components/AnimatedNumbers";
 import Head from "next/head";
 import Image from "next/image";
 import profilePic from "../../../public/images/profile/developer-pic-2.jpg";
 import { Skills } from "@/components/Skills";
+import { Experience } from "@/components/Experience";
 
 const page = () => {
   return (
@@ -74,6 +75,8 @@ const page = () => {
             </div>
           </div>
           <Skills />
+          <Experience />
+          <Education />
         </Container>
       </main>
     </>

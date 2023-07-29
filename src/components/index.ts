@@ -4,3 +4,8 @@ export { Container } from "./Container";
 export { AnimatedText } from "./AnimatedText";
 export { Footer } from "./Footer";
 export { HireMe } from "./HireMe";
+export { AnimatedNumbers } from "./AnimatedNumbers";
+export { Experience } from "./Experience";
+export { Education } from "./Education";
+export { LiIcon } from "./LiIcon";
+export { Skills } from "./Skills";
