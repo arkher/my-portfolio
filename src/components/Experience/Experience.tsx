@@ -74,15 +74,26 @@ const Experience = () => {
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4">
           <Details
-            position="Intern"
-            company="NCA - UFMA"
-            companyLink="https://sigaa.ufma.br/sigaa/public/departamento/secao_extra.jsf?lc=es_ES&id=998&extra=208953677"
-            time="2018-2020"
-            address="São Luís, MA"
-            work="Development of intelligent systems based on AI and Machine Learning/Deep Learning to predict
-          data related to lawsuits (propensity for lawsuits), so that the company could protect itself and
-          improve its service in areas where there was great dissatisfaction with the service. For this, I
-          used technologies such as: Python, XGBoost, Pandas, Keras and Tensorflow."
+            position="Software engineer"
+            company="Juvo"
+            companyLink="http://juvocredito.com.br/"
+            time="2022-current"
+            address="São Paulo, SP"
+            work="I developed new functionalities in a Backoffice Project using React, adding value to the company
+            and facilitating the demand of the operational sector.
+            I also eveloped new features for the company's official applications, which manage loans and users,
+            using React, Typescript and Flutter."
+          />
+          <Details
+            position="Software engineer"
+            company="Blip"
+            companyLink="https://www.blip.ai/"
+            time="2021-2022"
+            address="Belo Horizonte, MG"
+            work="I developed several modules in a micro-frontend architecture using React and Typescript,
+            leading a development team and leading the migration of some modules to a new structure.
+            Promoted the personal development of other team members by transferring knowledge, clean
+            code and good practices through talks and code reviews."
           />
           <Details
             position="Software engineer"
@@ -101,26 +112,15 @@ const Experience = () => {
             processes of these contracts."
           />
           <Details
-            position="Software engineer"
-            company="Blip"
-            companyLink="https://www.blip.ai/"
-            time="2022-2023"
-            address="Belo Horizonte, MG"
-            work="I developed several modules in a micro-frontend architecture using React and Typescript,
-            leading a development team and leading the migration of some modules to a new structure.
-            Promoted the personal development of other team members by transferring knowledge, clean
-            code and good practices through talks and code reviews."
-          />
-          <Details
-            position="Software engineer"
-            company="Juvo"
-            companyLink="http://juvocredito.com.br/"
-            time="2023-current"
-            address="São Paulo, SP"
-            work="I developed new functionalities in a Backoffice Project using React, adding value to the company
-            and facilitating the demand of the operational sector.
-            I also eveloped new features for the company's official applications, which manage loans and users,
-            using React, Typescript and Flutter."
+            position="Intern"
+            company="NCA - UFMA"
+            companyLink="https://sigaa.ufma.br/sigaa/public/departamento/secao_extra.jsf?lc=es_ES&id=998&extra=208953677"
+            time="2018-2020"
+            address="São Luís, MA"
+            work="Development of intelligent systems based on AI and Machine Learning/Deep Learning to predict
+          data related to lawsuits (propensity for lawsuits), so that the company could protect itself and
+          improve its service in areas where there was great dissatisfaction with the service. For this, I
+          used technologies such as: Python, XGBoost, Pandas, Keras and Tensorflow."
           />
         </ul>
       </div>
