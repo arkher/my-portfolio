@@ -9,3 +9,4 @@ export { Experience } from "./Experience";
 export { Education } from "./Education";
 export { LiIcon } from "./LiIcon";
 export { Skills } from "./Skills";
+export { FeaturedProject } from "./FeaturedProject";
