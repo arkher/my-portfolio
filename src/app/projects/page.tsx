@@ -12,13 +12,13 @@ const page = () => {
         <meta name="description" content="Projects of Paulo Gomes."></meta>
       </Head>
       <main>
-        <Container>
+        <Container className="pt-16">
           <AnimatedText
             text="Imagination Trumps Knowledge!"
             className="mb-16"
           />
-          <div className="grid grid-cols-12 gap-24">
-            <div className="col-span-12">
+          <div className="grid grid-cols-12 gap-24 gap-y-32">
+            <div className="col-span-12 z-10">
               <FeaturedProject
                 title="Crypto Screener Application"
                 summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
@@ -30,7 +30,7 @@ const page = () => {
                 img={project1}
               />
             </div>
-            <div className="col-span-6">
+            <div className="col-span-6 z-10">
               <Project
                 title="Crypto Screener Application"
                 link="/"
