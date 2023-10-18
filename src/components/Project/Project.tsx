@@ -1,7 +1,9 @@
+'use client';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import { GithubIcon } from '../Icons/Icons';
+import { motion } from 'framer-motion';
 
 interface IProject {
   title: string;
@@ -10,6 +12,9 @@ interface IProject {
   link: string;
   github: string;
 }
+
+const FramerImage = motion(Image);
+
 
 const Project = ({title, type, img, link, github}: IProject) => {
   return (
@@ -21,7 +26,10 @@ const Project = ({title, type, img, link, github}: IProject) => {
         target="_blank"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
-        <Image src={img} alt={title} className="w-full h-auto"></Image>
+        {img && <FramerImage src={img} alt={title} className="w-full h-auto" 
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.2 }}
+        />}
       </Link>
 
       <div className="w-full flex flex-col items-start justify-between mt-4">
