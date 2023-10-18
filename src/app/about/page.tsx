@@ -56,17 +56,17 @@ const page = () => {
               />
             </div>
             <div className="col-span-2 flex flex-col items-end justify-between">
-              <div className="flex flex-col flex-1 items-end">
+              {/* <div className="flex flex-col flex-1 items-end">
                 <span className="inline-block text-7xl font-bold">
                   <AnimatedNumbers value={20} />+
                 </span>
                 <h2 className="font-medium text-xl capitalize text-dark/75">
                   projects completed
                 </h2>
-              </div>
+              </div> */}
               <div className="flex flex-col flex-1 items-end">
                 <span className="inline-block text-7xl font-bold">
-                  <AnimatedNumbers value={4} />+
+                  <AnimatedNumbers value={5} />+
                 </span>
                 <h2 className="font-medium text-xl capitalize text-dark/75">
                   years of experience

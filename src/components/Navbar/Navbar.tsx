@@ -38,10 +38,10 @@ const Navbar = () => {
         <CustomLink href="/" title="Home" className="mr-4" />
         <CustomLink href="/about" title="About" className="mx-4" />
         {/* <CustomLink href="/projects" title="Projects" className="mx-4" /> */}
-        {/* <CustomLink href="/articles" title="Articles" className="ml-4" /> */}
+        <CustomLink href="/articles" title="Articles" className="ml-4" />
       </nav>
       <nav className="flex items-center justify-center flex-wrap">
-        <motion.a
+        {/* <motion.a
           href="https://twitter.com"
           target="_blank"
           whileHover={{ y: -2 }}
@@ -49,7 +49,7 @@ const Navbar = () => {
           className="w-6 mr-3"
         >
           <TwitterIcon />
-        </motion.a>
+        </motion.a> */}
         <motion.a
           href="https://github.com/arkher"
           target="_blank"
@@ -68,7 +68,7 @@ const Navbar = () => {
         >
           <LinkedInIcon />
         </motion.a>
-        <motion.a
+        {/* <motion.a
           href="/"
           target="_blank"
           whileHover={{ y: -2 }}
@@ -85,7 +85,7 @@ const Navbar = () => {
           className="w-6 ml-3"
         >
           <DribbbleIcon />
-        </motion.a>
+        </motion.a> */}
       </nav>
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">
         <Logo />

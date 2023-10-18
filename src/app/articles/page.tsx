@@ -1,4 +1,4 @@
-import { AnimatedText, Container } from "@/components";
+import { AnimatedText, Article, Container } from "@/components";
 import { FeaturedArticle } from "@/components/FeaturedArticle";
 import Head from "next/head";
 import React from "react";
@@ -15,7 +15,7 @@ const page = () => {
       <main className="w-full mb-16 flex flex-col items-center justify-center">
         <Container className="pt-16">
           <AnimatedText text="Words Can Change The World! " className="mb-16" />
-          <ul className="grid grid-cols-2 gap-16">
+          {/* <ul className="grid grid-cols-2 gap-16">
             <FeaturedArticle
               title="Build A Custom Pagination Component In Reactjs From Scratch"
               summary="Learn how to build a custom pagination component in ReactJS from scratch. 
@@ -31,6 +31,26 @@ const page = () => {
               time="9 min read"
               link="/"
               img={article2}
+            />
+          </ul> */}
+          <h2 className="font-bold text-4xl w-full text-center mb-16">
+            All articles
+          </h2>
+          <ul>
+            <Article
+              title="Diagnosis of COVID-19 on chest X-ray images using residual neural networks"
+              date="2022"
+              link="https://rosario.ufma.br/jspui/handle/123456789/6382"
+            />
+            <Article
+              title="Prediction of Unregistered Consumer Lawsuits: An Approach to the Problem of Unbalanced Classes"
+              date="2019"
+              link="https://sol.sbc.org.br/index.php/ercemapi/article/view/8858"
+            />
+            <Article
+              title="Prediction of lawsuits in the electricity sector due to lack of energy supply using logistic regression"
+              date="2019"
+              link="https://proceedings.science/sbai-2019/trabalhos/predicao-de-acoes-judiciais-no-setor-eletrico-por-falta-de-fornecimento-de-energ"
             />
           </ul>
         </Container>

@@ -10,3 +10,6 @@ export { Education } from "./Education";
 export { LiIcon } from "./LiIcon";
 export { Skills } from "./Skills";
 export { FeaturedProject } from "./FeaturedProject";
+export { Project } from "./Project";
+export { FeaturedArticle } from './FeaturedArticle'
+export { Article } from './Article'
