@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <main
-          className={`${mont.className} font-mont text-black bg-light w-full min-h-screen`}
+          className={`${mont.className} font-mont text-black bg-light dark:bg-dark w-full min-h-screen`}
         >
           <Navbar />
           {children}
