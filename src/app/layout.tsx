@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import { Montserrat } from "next/font/google";
 import { Footer, Navbar } from "../components";
+import Script from "next/script";
 
 const mont = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
 
@@ -16,6 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Script id="theme-switcher" strategy="beforeInteractive">
+          {`
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              document.documentElement.classList.add('dark')
+            } else {
+              document.documentElement.classList.remove('dark')
+            }
+            `}
+        </Script>
         <main
           className={`${mont.className} font-mont text-black bg-light dark:bg-dark w-full min-h-screen`}
         >
