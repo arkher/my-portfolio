@@ -2,6 +2,8 @@
 import { Montserrat } from "next/font/google";
 import { Footer, Navbar } from "../components";
 import Script from "next/script";
+import "@/app/styles/globals.css";
+import "./globals.css";
 
 const mont = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
 

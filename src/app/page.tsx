@@ -1,5 +1,4 @@
-import "@/app/styles/globals.css";
-import "./globals.css";
+
 import Head from "next/head";
 import { AnimatedText, Container, HireMe, Navbar } from "../components";
 import Image from "next/image";
