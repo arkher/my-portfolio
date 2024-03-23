@@ -15,7 +15,7 @@ const Article = ({ title, date, link }: IArticle) => {
   return (
     <motion.li
       className="relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between 
-                    bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4"
+                    bg-light text-dark dark:bg-dark dark:text-light first:mt-0 border border-solid border-dark dark:border-light border-r-4 border-b-4"
       initial={{ y: 100 }}
       whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
       viewport={{ once: true }}
@@ -25,7 +25,7 @@ const Article = ({ title, date, link }: IArticle) => {
           {title}
         </h2>
       </Link>
-      <span className="text-primary font-semibold pl-4">{date}</span>
+      <span className="text-primary dark:text-primaryDark font-semibold pl-4">{date}</span>
     </motion.li>
   );
 };
