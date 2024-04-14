@@ -54,6 +54,9 @@ const page = () => {
                 src={profilePic}
                 alt="Paulo Gomes"
                 className="w-full h-23 rounded-2xl"
+                priority
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1024px) 50vw, 33vw"
               />
             </div>
             <div className="col-span-2 flex flex-col items-end justify-between">
