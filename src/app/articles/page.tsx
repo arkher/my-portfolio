@@ -10,8 +10,8 @@ const page = () => {
       </Head>
       <main className="w-full mb-16 flex flex-col items-center justify-center">
         <Container className="pt-16">
-          <AnimatedText text="Words Can Change The World! " className="mb-16" />
-          <h2 className="font-bold text-4xl w-full text-center mb-16 dark:text-light">
+          <AnimatedText text="Words Can Change The World! " className="mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8" />
+          <h2 className="font-bold text-4xl w-full text-center mb-16 sm:mb-8 dark:text-light">
             All articles
           </h2>
           <ul>

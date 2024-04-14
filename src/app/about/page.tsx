@@ -20,10 +20,10 @@ const page = () => {
         <Container className="pt-16">
           <AnimatedText
             text="Passion Fuels Purpose!"
-            className="mb-16"
+            className="mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
           ></AnimatedText>
-          <div className="grid w-full grid-cols-8 gap-16">
-            <div className="col-span-3 flex flex-col items-start justify-start">
+          <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
+            <div className="col-span-3 md:col-span-8 md:mt-8 flex flex-col items-start justify-start xl:col-span-4 md:order-2">
               <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
                 Biography
               </h2>
@@ -46,7 +46,7 @@ const page = () => {
                 your next project.
               </p>
             </div>
-            <div className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark
+            <div className="col-span-3 xl:col-span-4 md:col-span-8 md:order-1 relative h-max rounded-2xl border-2 border-solid border-dark
              bg-light p-8 dark:bg-dark dark:border-light">
               <div className="absolute top-0 
               -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark dark:bg-light" />
@@ -59,20 +59,12 @@ const page = () => {
                 (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="col-span-2 flex flex-col items-end justify-between">
-              {/* <div className="flex flex-col flex-1 items-end">
-                <span className="inline-block text-7xl font-bold">
-                  <AnimatedNumbers value={20} />+
-                </span>
-                <h2 className="font-medium text-xl capitalize text-dark/75">
-                  projects completed
-                </h2>
-              </div> */}
-              <div className="flex flex-col flex-1 items-end">
-                <span className="inline-block text-7xl font-bold">
+            <div className="col-span-2 xl:col-span-8 md:order-3 flex flex-col items-end justify-between xl:flex-row xl:items-center">
+              <div className="flex flex-col flex-1 items-end xl:items-center xl:mt-4">
+                <span className="inline-block text-8xl font-bold">
                   <AnimatedNumbers value={5} />+
                 </span>
-                <h2 className="font-medium text-xl capitalize text-dark/75 dark:text-light/75">
+                <h2 className="font-medium text-2xl capitalize text-dark/75 dark:text-light/75 mt-4">
                   years of experience
                 </h2>
               </div>
