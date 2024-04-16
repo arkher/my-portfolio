@@ -30,7 +30,7 @@ const page = () => {
               <p className="font-medium ">
                 Hi, I am Paulo Gomes, a web developer and Software engineer with
                 a passion for creating beautiful, functional, and user-centered
-                digital experiences. With 4 years of experience in the field. I
+                digital experiences. With 5 years of experience in the field. I
                 am always looking for new and innovative ways to bring my
                 clients ideas and perspectives to life.
               </p>
