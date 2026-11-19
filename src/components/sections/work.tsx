@@ -3,14 +3,23 @@
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { useRef, useState } from "react";
-import { roles, type Role } from "@/content/profile";
+import type { Content } from "@/content";
+import type { Role } from "@/content/types";
 import { cn, formatPeriod, toggleId } from "@/lib/utils";
 import { ease } from "@/lib/motion";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/motion-primitives";
 import { SectionHeading } from "@/components/section-heading";
 
-const RoleItem = ({ role, open, onToggle }: Readonly<{ role: Role; open: boolean; onToggle: () => void }>) => {
+type Labels = Pick<Content["work"], "current" | "at" | "stack" | "showDetails" | "hideDetails">;
+
+const RoleItem = ({
+  role,
+  open,
+  onToggle,
+  labels,
+  dates,
+}: Readonly<{ role: Role; open: boolean; onToggle: () => void; labels: Labels; dates: Content["dates"] }>) => {
   const current = role.period.end === null;
   const panelId = `role-${role.id}`;
 
@@ -24,17 +33,17 @@ const RoleItem = ({ role, open, onToggle }: Readonly<{ role: Role; open: boolean
         )}
       />
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <p className="text-sm text-mist tabular-nums">{formatPeriod(role.period)}</p>
-        {current ? <Badge variant="live">Current</Badge> : null}
+        <p className="text-sm text-mist tabular-nums">{formatPeriod(role.period, dates)}</p>
+        {current ? <Badge variant="live">{labels.current}</Badge> : null}
         {role.note ? <Badge variant="quiet">{role.note}</Badge> : null}
       </div>
       <h3 className="mt-2 text-2xl font-semibold text-fog">
-        {role.title} <span className="text-mist">at</span> {role.company}
+        {role.title} <span className="text-mist">{labels.at}</span> {role.company}
       </h3>
       <p className="mt-1 text-sm text-mist">{role.location}</p>
       <p className="mt-4 max-w-[60ch] text-fog/85">{role.summary}</p>
 
-      <ul className="mt-4 flex flex-wrap gap-2" aria-label="Stack">
+      <ul className="mt-4 flex flex-wrap gap-2" aria-label={labels.stack}>
         {role.stack.map((tech) => (
           <li key={tech}>
             <Badge>{tech}</Badge>
@@ -49,7 +58,7 @@ const RoleItem = ({ role, open, onToggle }: Readonly<{ role: Role; open: boolean
         aria-controls={panelId}
         className="group mt-5 inline-flex items-center gap-1.5 text-sm text-signal transition-colors hover:text-fog"
       >
-        {open ? "Hide details" : "Show details"}
+        {open ? labels.hideDetails : labels.showDetails}
         <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.4, ease }}>
           <ChevronDown className="size-4" />
         </motion.span>
@@ -84,7 +93,8 @@ const RoleItem = ({ role, open, onToggle }: Readonly<{ role: Role; open: boolean
   );
 };
 
-export const Work = () => {
+export const Work = ({ work, dates }: Readonly<{ work: Content["work"]; dates: Content["dates"] }>) => {
+  const { roles } = work;
   const [openIds, setOpenIds] = useState<readonly string[]>([roles[0]?.id ?? ""]);
   const listRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: listRef, offset: ["start 75%", "end 60%"] });
@@ -94,10 +104,7 @@ export const Work = () => {
     <section id="work" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-28">
       <div className="grid gap-12 lg:grid-cols-[18rem_1fr]">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <SectionHeading title="Where I've worked">
-            Seven years across healthcare, fintech, conversational platforms and retail, most of them remote for US
-            companies.
-          </SectionHeading>
+          <SectionHeading title={work.title}>{work.intro}</SectionHeading>
         </div>
 
         <div ref={listRef} className="relative">
@@ -114,6 +121,8 @@ export const Work = () => {
                 role={role}
                 open={openIds.includes(role.id)}
                 onToggle={() => setOpenIds((ids) => toggleId(ids, role.id))}
+                labels={work}
+                dates={dates}
               />
             ))}
           </div>

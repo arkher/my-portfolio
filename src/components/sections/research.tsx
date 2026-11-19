@@ -2,19 +2,17 @@
 
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { publications } from "@/content/profile";
+import type { Content } from "@/content";
 import { ease } from "@/lib/motion";
 import { RevealGroup, RevealItem } from "@/components/motion-primitives";
 import { SectionHeading } from "@/components/section-heading";
 
-export const Research = () => (
+export const Research = ({ research }: Readonly<{ research: Content["research"] }>) => (
   <section id="research" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-28">
-    <SectionHeading title="Research">
-      Before frontend, I spent two years in machine learning research. A few of the papers that came out of it.
-    </SectionHeading>
+    <SectionHeading title={research.title}>{research.intro}</SectionHeading>
 
     <RevealGroup className="border-t border-border/70">
-      {publications.map((pub) => (
+      {research.publications.map((pub) => (
         <RevealItem key={pub.href}>
           <motion.a
             href={pub.href}
@@ -46,7 +44,7 @@ export const Research = () => (
               className="mt-1 text-signal"
             >
               <ArrowUpRight className="size-6" />
-              <span className="sr-only">Open paper</span>
+              <span className="sr-only">{research.openPaper}</span>
             </motion.span>
           </motion.a>
         </RevealItem>

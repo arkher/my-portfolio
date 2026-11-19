@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { about, education } from "@/content/profile";
+import type { Content } from "@/content";
 import { ease, inView } from "@/lib/motion";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion-primitives";
 import { SectionHeading } from "@/components/section-heading";
 import portrait from "../../../public/images/paulo.jpg";
 
-export const About = () => {
+export const About = ({ about }: Readonly<{ about: Content["about"] }>) => {
+  const { education } = about;
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -29,7 +30,7 @@ export const About = () => {
           <motion.div style={{ y }} className="absolute inset-[-10%]">
             <Image
               src={portrait}
-              alt="Paulo Gomes at his desk"
+              alt={about.photoAlt}
               fill
               placeholder="blur"
               sizes="(max-width: 1024px) 100vw, 40vw"
@@ -40,9 +41,9 @@ export const About = () => {
         </motion.div>
 
         <div>
-          <SectionHeading title="A frontend engineer who ended up leading" />
+          <SectionHeading title={about.title} />
           <RevealGroup className="space-y-5 text-lg text-fog/85" step={0.12}>
-            {about.map((paragraph) => (
+            {about.paragraphs.map((paragraph) => (
               <RevealItem key={paragraph}>
                 <p className="max-w-[62ch]">{paragraph}</p>
               </RevealItem>

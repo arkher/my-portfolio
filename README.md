@@ -29,14 +29,16 @@ npm run dev        # http://localhost:3000
 
 ```
 src/
-  app/              layout, page, global styles, OG image
-  content/          profile.ts: every piece of copy, as readonly data
+  app/              global styles, favicon
+  app/[lang]/       localized layout + page (/en, /pt), statically generated
+  content/          en.ts, pt.ts (copy per locale), shared.ts (facts), types.ts (Content shape)
   components/
     sections/       hero, work, about, skills, research, contact
     ui/             shadcn-style primitives (button, badge)
     motion-primitives.tsx   word reveal, reveal-on-scroll, count-up, magnetic
     hero-devices.tsx        animated phone + dashboard illustration
   hooks/            use-active-section
+  proxy.ts          sends / and legacy paths to the visitor's language
   lib/              pure helpers (utils, geometry, motion presets) + tests
   fonts/            self-hosted woff2 files
 ```
@@ -46,10 +48,14 @@ src/
 - **Functional style.** Components are plain functions of their props; content lives in `src/content/profile.ts` as
   readonly data. Helpers in `src/lib` are pure and unit tested. No classes, no mutation (`toggleId` returns a new
   array, etc.). ESLint enforces `prefer-const` and `no-param-reassign`.
-- **Updating content.** Edit `src/content/profile.ts` only; sections render from it.
+- **Updating content.** Edit `src/content/en.ts` and `src/content/pt.ts` (words) or `src/content/shared.ts`
+  (companies, dates, stacks, links). Both locales must satisfy the `Content` type, so a missing translation
+  fails the build.
+- **Languages.** English (`/en`) and Portuguese (`/pt`). `/` redirects using the saved choice (`NEXT_LOCALE`
+  cookie, set by the switcher), then `Accept-Language`, then English. Pages declare `hreflang` alternates.
 - **Motion.** Shared easing and variants live in `src/lib/motion.ts`. Every animation respects
   `prefers-reduced-motion`, and smooth scrolling is turned off for those users.
-- **Résumé.** `public/Paulo_Gomes_CV.pdf` is linked from the hero and contact section.
+- **Résumé.** `public/Paulo_Gomes_CV.pdf` (EN) and `public/Paulo_Gomes_Curriculo.pdf` (PT), linked per locale.
 
 ## Deploy
 
