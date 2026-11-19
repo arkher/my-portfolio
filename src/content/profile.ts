@@ -60,7 +60,7 @@ export const roles: readonly Role[] = [
     id: "everbetter",
     title: "Tech Lead",
     company: "EverBetter",
-    period: { start: "2026-03", end: null },
+    period: { start: "2026-02", end: null },
     location: "Brentwood, TN · Remote",
     summary:
       "Leading the technical direction of a health platform: a patient app with health-device integrations and AI assistance, and a web app for clinicians.",
@@ -77,7 +77,7 @@ export const roles: readonly Role[] = [
     title: "Tech Lead",
     company: "Jobsity",
     note: "Client: EverBetter",
-    period: { start: "2025-01", end: "2026-02" },
+    period: { start: "2025-01", end: "2026-01" },
     location: "Remote",
     summary:
       "Led a team of up to three engineers building a medical clinics app in React Native for a US healthcare company.",
