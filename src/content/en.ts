@@ -79,16 +79,6 @@ export const en = {
           "Built an accessible design system and mentored engineers through reviews and docs.",
         ],
       },
-      zbra: {
-        title: "Senior Frontend Developer",
-        note: "Contract",
-        location: "Remote",
-        summary: "Short contract building a payments platform with Next.js and TypeScript.",
-        highlights: [
-          "Set up an NX monorepo to standardize tooling and project structure.",
-          "Introduced Storybook and next-intl for reusable, multilingual components.",
-        ],
-      },
       juvo: {
         title: "Senior Software Engineer",
         location: "USA · Remote",

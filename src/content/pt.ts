@@ -79,16 +79,6 @@ export const pt = {
           "Construí um design system acessível e fui mentor do time com code reviews e documentação.",
         ],
       },
-      zbra: {
-        title: "Desenvolvedor Frontend Sênior",
-        note: "Contrato",
-        location: "Remoto",
-        summary: "Contrato curto construindo uma plataforma de pagamentos com Next.js e TypeScript.",
-        highlights: [
-          "Configurei um monorepo NX para padronizar ferramentas e estrutura dos projetos.",
-          "Introduzi Storybook e next-intl para componentes reutilizáveis e multilíngues.",
-        ],
-      },
       juvo: {
         title: "Engenheiro de Software Sênior",
         location: "EUA · Remoto",
