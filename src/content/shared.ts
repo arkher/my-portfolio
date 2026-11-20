@@ -16,7 +16,6 @@ export const links: readonly Link[] = [
 export const roleBases = [
   { id: "everbetter", company: "EverBetter", period: { start: "2026-02", end: null }, stack: ["React Native", "React", "Auth0", "CI/CD", "TypeScript"] },
   { id: "jobsity", company: "Jobsity", period: { start: "2025-01", end: "2026-01" }, stack: ["React Native", "Ignite", "MobX", "MMKV", "Next.js"] },
-  { id: "zbra", company: "ZBRA", period: { start: "2024", end: "2025" }, stack: ["Next.js", "NX", "Storybook", "next-intl"] },
   { id: "juvo", company: "Juvo", period: { start: "2022-03", end: "2025-08" }, stack: ["Next.js", "React", "Flutter", "TypeScript"] },
   { id: "blip", company: "Take Blip", period: { start: "2022-01", end: "2023-03" }, stack: ["React", "TypeScript", "Microfrontends"] },
   { id: "pulse", company: "Pulse · Grupo Mateus", period: { start: "2020-02", end: "2022-04" }, stack: ["React Native", "Storybook", "Node.js", "Jest"] },
