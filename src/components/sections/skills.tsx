@@ -1,18 +1,16 @@
 "use client";
 
 import { motion } from "motion/react";
-import { skills } from "@/content/profile";
+import type { Content } from "@/content";
 import { ease, inView, stagger } from "@/lib/motion";
 import { SectionHeading } from "@/components/section-heading";
 
-export const Skills = () => (
+export const Skills = ({ skills }: Readonly<{ skills: Content["skills"] }>) => (
   <section id="skills" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-28">
-    <SectionHeading title="What I work with">
-      The tools I reach for every week, grouped by the problem they solve.
-    </SectionHeading>
+    <SectionHeading title={skills.title}>{skills.intro}</SectionHeading>
 
     <div className="grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-      {skills.map((group) => (
+      {skills.groups.map((group) => (
         <motion.div
           key={group.name}
           variants={stagger(0.04)}

@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { ArrowDownToLine, Mail } from "lucide-react";
-import { facts, profile } from "@/content/profile";
+import type { Content } from "@/content";
 import { ease } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { HeroDevices } from "@/components/hero-devices";
@@ -14,7 +14,9 @@ const enter = (delay: number) => ({
   transition: { duration: 0.9, ease, delay },
 });
 
-export const Hero = () => (
+type HeroProps = Readonly<{ profile: Content["profile"]; hero: Content["hero"] }>;
+
+export const Hero = ({ profile, hero }: HeroProps) => (
   <section id="top" className="relative overflow-hidden pt-32 pb-20 max-lg:pt-28 lg:min-h-[100svh] lg:flex lg:items-center">
     <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-6 lg:grid-cols-[1.2fr_1fr]">
       <div>
@@ -23,17 +25,17 @@ export const Hero = () => (
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-pulse opacity-60" />
             <span className="relative inline-flex size-2 rounded-full bg-pulse" />
           </span>
-          {profile.role}, open to remote roles
+          {hero.availability}
         </motion.p>
 
         <WordReveal
-          text={profile.headline}
+          text={hero.headline}
           delay={0.25}
           className="font-display text-[clamp(2.3rem,4.2vw,3.6rem)] leading-[1.04] font-semibold text-fog"
         />
 
         <motion.p {...enter(0.9)} className="mt-7 max-w-[34rem] text-lg text-mist">
-          {profile.intro}
+          {hero.intro}
         </motion.p>
 
         <motion.div {...enter(1.05)} className="mt-9 flex flex-wrap items-center gap-3">
@@ -41,7 +43,7 @@ export const Hero = () => (
             <Button asChild size="lg">
               <a href={`mailto:${profile.email}`}>
                 <Mail />
-                Email me
+                {hero.emailCta}
               </a>
             </Button>
           </Magnetic>
@@ -49,14 +51,14 @@ export const Hero = () => (
             <Button asChild variant="outline" size="lg">
               <a href={profile.resume} download>
                 <ArrowDownToLine />
-                Download résumé
+                {hero.resumeCta}
               </a>
             </Button>
           </Magnetic>
         </motion.div>
 
         <motion.dl {...enter(1.25)} className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-border/70 pt-6">
-          {facts.map((fact) => (
+          {hero.facts.map((fact) => (
             <div key={fact.label}>
               <dt className="sr-only">{fact.label}</dt>
               <dd className="font-display text-3xl font-semibold text-fog tabular-nums">

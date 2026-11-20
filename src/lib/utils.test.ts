@@ -1,28 +1,32 @@
 import { describe, expect, it } from "vitest";
 import { cn, formatMonth, formatPeriod, toggleId } from "./utils";
 
+const en = { months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], now: "Now" };
+const pt = { months: ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"], now: "atual" };
+
 describe("formatMonth", () => {
-  it("formats year-month as short month and year", () => {
-    expect(formatMonth("2026-03")).toBe("Mar 2026");
-    expect(formatMonth("2018-10")).toBe("Oct 2018");
+  it("formats year-month with the given month names", () => {
+    expect(formatMonth("2026-03", en.months)).toBe("Mar 2026");
+    expect(formatMonth("2018-10", pt.months)).toBe("out 2018");
   });
 
   it("returns a bare year unchanged", () => {
-    expect(formatMonth("2024")).toBe("2024");
+    expect(formatMonth("2024", en.months)).toBe("2024");
   });
 
   it("falls back to the year for an out-of-range month", () => {
-    expect(formatMonth("2024-13")).toBe("2024");
+    expect(formatMonth("2024-13", en.months)).toBe("2024");
   });
 });
 
 describe("formatPeriod", () => {
   it("joins start and end with an en dash", () => {
-    expect(formatPeriod({ start: "2022-03", end: "2025-08" })).toBe("Mar 2022 – Aug 2025");
+    expect(formatPeriod({ start: "2022-03", end: "2025-08" }, en)).toBe("Mar 2022 – Aug 2025");
   });
 
-  it("uses 'Now' for an open-ended period", () => {
-    expect(formatPeriod({ start: "2026-03", end: null })).toBe("Mar 2026 – Now");
+  it("uses the locale's word for an open-ended period", () => {
+    expect(formatPeriod({ start: "2026-02", end: null }, en)).toBe("Feb 2026 – Now");
+    expect(formatPeriod({ start: "2026-02", end: null }, pt)).toBe("fev 2026 – atual");
   });
 });
 

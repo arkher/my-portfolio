@@ -3,20 +3,16 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Check, Copy } from "lucide-react";
 import { useEffect, useState } from "react";
-import { profile } from "@/content/profile";
+import type { Content } from "@/content";
 import { ease } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Magnetic, Reveal, WordReveal } from "@/components/motion-primitives";
 
-type CopyState = "idle" | "copied" | "failed";
+type CopyState = keyof Content["contact"]["copy"];
 
-const copyLabel: Readonly<Record<CopyState, string>> = {
-  idle: "Copy email",
-  copied: "Email copied",
-  failed: "Copy failed, select the address instead",
-};
+type ContactProps = Readonly<{ contact: Content["contact"]; profile: Content["profile"] }>;
 
-export const Contact = () => {
+export const Contact = ({ contact, profile }: ContactProps) => {
   const [state, setState] = useState<CopyState>("idle");
 
   useEffect(() => {
@@ -50,12 +46,11 @@ export const Contact = () => {
         <div className="relative">
           <WordReveal
             as="h2"
-            text="Hiring a tech lead or a senior engineer?"
+            text={contact.title}
             className="max-w-3xl font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.03] font-semibold text-fog"
           />
           <Reveal delay={0.2} className="mt-5 max-w-xl text-lg text-mist">
-            I&apos;m open to remote roles. Send a note with the team and the problem, and I&apos;ll reply within a
-            couple of days.
+            {contact.body}
           </Reveal>
 
           <Reveal delay={0.35} className="mt-10 flex flex-wrap items-center gap-3">
@@ -75,7 +70,7 @@ export const Contact = () => {
                   className="inline-flex items-center gap-2"
                 >
                   {state === "copied" ? <Check className="text-pulse" /> : <Copy />}
-                  {copyLabel[state]}
+                  {contact.copy[state]}
                 </motion.span>
               </AnimatePresence>
             </Button>
@@ -98,7 +93,7 @@ export const Contact = () => {
               download
               className="underline decoration-border underline-offset-4 transition-colors hover:text-fog hover:decoration-signal"
             >
-              Résumé (PDF)
+              {contact.resumeLink}
             </a>
           </Reveal>
         </div>
