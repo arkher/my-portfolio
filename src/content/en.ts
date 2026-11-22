@@ -112,7 +112,7 @@ export const en = {
         title: "Data Scientist",
         note: "Part-time",
         location: "São Luís",
-        summary: "Predicted consumer lawsuits with machine learning to help a utility reduce risk.",
+        summary: "Predicted consumer lawsuits with machine learning to help a company reduce risk.",
         highlights: ["Built predictive models with XGBoost and TensorFlow and presented results to stakeholders."],
       },
     }),

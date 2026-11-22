@@ -112,7 +112,7 @@ export const pt = {
         title: "Cientista de Dados",
         note: "Meio período",
         location: "São Luís",
-        summary: "Previ processos judiciais de consumidores com aprendizado de máquina para reduzir riscos de uma concessionária.",
+        summary: "Previ processos judiciais de consumidores com aprendizado de máquina para reduzir riscos de uma empresa.",
         highlights: ["Construí modelos preditivos com XGBoost e TensorFlow e apresentei os resultados aos stakeholders."],
       },
     }),
